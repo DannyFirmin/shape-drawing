@@ -34,6 +34,8 @@ import State
 -- | Magenta Colour Event Test
 --
 -- >>> :set -XOverloadedStrings
+-- >>> import Shape
+-- >>> import ColourName
 -- >>> let state = World [] (RectangleTool Nothing) Black
 -- >>> handleEvent (KeyPress "M") state
 -- World [] (RectangleTool Nothing) Magenta
@@ -42,6 +44,8 @@ import State
 -- | Green Colour Event Test
 --
 -- >>> :set -XOverloadedStrings
+-- >>> import Shape
+-- >>> import ColourName
 -- >>> let state = World [] (RectangleTool Nothing) Black
 -- >>> handleEvent (KeyPress "G") state
 -- World [] (RectangleTool Nothing) Green
@@ -50,6 +54,8 @@ import State
 -- | Incorrect Colour Input Test
 --
 -- >>> :set -XOverloadedStrings
+-- >>> import Shape
+-- >>> import ColourName
 -- >>> let state = World [] (RectangleTool Nothing) Black
 -- >>> handleEvent (KeyPress "H") state
 -- World [] (RectangleTool Nothing) Black
@@ -57,6 +63,8 @@ import State
 --
 -- | MousePress Event Test
 --
+-- >>> import Shape
+-- >>> import ColourName
 -- >>> let state = World [] (RectangleTool Nothing) Cyan
 -- >>> handleEvent (MousePress LeftButton (-3, 3)) state
 -- World [] (RectangleTool (Just (-3.0,3.0))) Cyan
@@ -64,6 +72,8 @@ import State
 --
 -- | MouseRelease Event Test
 --
+-- >>> import Shape
+-- >>> import ColourName
 -- >>> let state = World [] (RectangleTool (Just (-3.0,3.0))) Cyan
 -- >>> handleEvent (MouseRelease LeftButton (3, -3)) state
 -- World [Graphic (Rectangle 6.0 6.0) Cyan (0.0,0.0)] (RectangleTool Nothing) Cyan
@@ -78,6 +88,8 @@ import State
 --
 -- | Polygon Colour Test
 --
+-- >>> import Shape
+-- >>> import ColourName
 -- >>> :set -XOverloadedStrings
 -- >>> let state = World [] (PolygonTool []) Black
 -- >>> handleEvent (KeyPress "O") state
@@ -86,6 +98,8 @@ import State
 --
 -- | Polygon Vertex 1 Test
 --
+-- >>> import Shape
+-- >>> import ColourName
 -- >>> let state = World [] (PolygonTool []) Orange
 -- >>> handleEvent (MousePress LeftButton (3, 5)) state
 -- World [] (PolygonTool [(3.0,5.0)]) Orange
@@ -93,6 +107,8 @@ import State
 --
 -- | Polygon Vertex 2 Test
 --
+-- >>> import Shape
+-- >>> import ColourName
 -- >>> let state = World [] (PolygonTool [(3.0,5.0)]) Green
 -- >>> handleEvent (MousePress LeftButton (6, 8)) state
 -- World [] (PolygonTool [(6.0,8.0),(3.0,5.0)]) Green
@@ -100,6 +116,8 @@ import State
 --
 -- | Polygon Vertex 3 Test
 --
+-- >>> import Shape
+-- >>> import ColourName
 -- >>> let state = World [] (PolygonTool [(6.0,8.0),(3.0,5.0)]) Green
 -- >>> handleEvent (MousePress LeftButton (9, 2)) state
 -- World [] (PolygonTool [(9.0,2.0),(6.0,8.0),(3.0,5.0)]) Green
@@ -108,6 +126,8 @@ import State
 -- | Polygon Draw Test
 --
 -- >>> :set -XOverloadedStrings
+-- >>> import Shape
+-- >>> import ColourName
 -- >>> let state = World [] (PolygonTool [(9.0,2.0),(6.0,8.0),(3.0,5.0)]) Yellow
 -- >>> handleEvent (KeyPress " ") state
 -- World [Graphic (Polygon [(9.0,2.0),(6.0,8.0),(3.0,5.0)]) Yellow (0.0,0.0)] (PolygonTool []) Yellow
@@ -116,6 +136,8 @@ import State
 -- | Shape Removal Test
 --
 -- >>> :set -XOverloadedStrings
+-- >>> import Shape
+-- >>> import ColourName
 -- >>> import Graphic
 -- >>> let state = World [(Graphic (Rectangle 6 6) Cyan (0, 0)), (Graphic (Rectangle 3 3) Magenta (8, 4))] (RectangleTool Nothing) Orange
 -- >>> handleEvent (KeyPress "Backspace") state
