@@ -19,18 +19,21 @@ import State
 --
 -- | Rectangle Event Test
 --
+-- >>> :set -XOverloadedStrings
 -- >>> handleEvent (KeyPress "R") initialState
 -- World [] (RectangleTool Nothing) Black
 
 --
 -- | Incorrect Shape Input Test
 --
+-- >>> :set -XOverloadedStrings
 -- >>> handleEvent (KeyPress "X") initialState
 -- World [] (RectangleTool Nothing) Black
 
 --
 -- | Magenta Colour Event Test
 --
+-- >>> :set -XOverloadedStrings
 -- >>> let state = World [] (RectangleTool Nothing) Black
 -- >>> handleEvent (KeyPress "M") state
 -- World [] (RectangleTool Nothing) Magenta
@@ -38,6 +41,7 @@ import State
 --
 -- | Green Colour Event Test
 --
+-- >>> :set -XOverloadedStrings
 -- >>> let state = World [] (RectangleTool Nothing) Black
 -- >>> handleEvent (KeyPress "G") state
 -- World [] (RectangleTool Nothing) Green
@@ -45,6 +49,7 @@ import State
 --
 -- | Incorrect Colour Input Test
 --
+-- >>> :set -XOverloadedStrings
 -- >>> let state = World [] (RectangleTool Nothing) Black
 -- >>> handleEvent (KeyPress "H") state
 -- World [] (RectangleTool Nothing) Black
@@ -66,12 +71,14 @@ import State
 --
 -- | Polygon Event Test
 --
+-- >>> :set -XOverloadedStrings
 -- >>> handleEvent (KeyPress "P") initialState
 -- World [] (PolygonTool []) Black
 
 --
 -- | Polygon Colour Test
 --
+-- >>> :set -XOverloadedStrings
 -- >>> let state = World [] (PolygonTool []) Black
 -- >>> handleEvent (KeyPress "O") state
 -- World [] (PolygonTool []) Orange
@@ -100,6 +107,7 @@ import State
 --
 -- | Polygon Draw Test
 --
+-- >>> :set -XOverloadedStrings
 -- >>> let state = World [] (PolygonTool [(9.0,2.0),(6.0,8.0),(3.0,5.0)]) Yellow
 -- >>> handleEvent (KeyPress " ") state
 -- World [Graphic (Polygon [(9.0,2.0),(6.0,8.0),(3.0,5.0)]) Yellow (0.0,0.0)] (PolygonTool []) Yellow
@@ -107,6 +115,7 @@ import State
 --
 -- | Shape Removal Test
 --
+-- >>> :set -XOverloadedStrings
 -- >>> import Graphic
 -- >>> let state = World [(Graphic (Rectangle 6 6) Cyan (0, 0)), (Graphic (Rectangle 3 3) Magenta (8, 4))] (RectangleTool Nothing) Orange
 -- >>> handleEvent (KeyPress "Backspace") state

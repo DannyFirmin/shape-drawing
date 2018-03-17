@@ -13,6 +13,11 @@ main = interactionOf initialCoord handleTime handleEvent drawState
 handleTime :: Double -> Coord -> Coord
 handleTime _ c = c
 
+-- |
+-- >>> :set -XOverloadedStrings
+-- >>> handleEvent (KeyPress "Up") (0,0)
+-- (0,1)
+
 handleEvent :: Event -> Coord -> Coord
 handleEvent e (x,y) = case e of
   KeyPress "Up" -> (x,y+1)
