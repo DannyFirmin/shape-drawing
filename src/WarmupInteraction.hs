@@ -16,7 +16,7 @@ handleTime _ c = c
 -- |
 -- >>> :set -XOverloadedStrings
 -- >>> handleEvent (KeyPress "Up") (0,0)
--- (0,1)
+-- (0.0,1.0)
 
 handleEvent :: Event -> Coord -> Coord
 handleEvent e (x,y) = case e of
