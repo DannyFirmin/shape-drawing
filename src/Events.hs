@@ -102,7 +102,7 @@ import State
 --
 -- >>> let state = World [] (PolygonTool [(9.0,2.0),(6.0,8.0),(3.0,5.0)]) Yellow
 -- >>> handleEvent (KeyPress " ") state
--- World [Graphic (Polygon [(9.0,2.0),(6.0,8.0),(3.0,5.0)]) Yellow (0.0,0.0)] (PolygonTool [(9.0,2.0),(6.0,8.0),(3.0,5.0)]) Yellow
+-- World [Graphic (Polygon [(9.0,2.0),(6.0,8.0),(3.0,5.0)]) Yellow (0.0,0.0)] (PolygonTool []) Yellow
 
 --
 -- | Shape Removal Test
