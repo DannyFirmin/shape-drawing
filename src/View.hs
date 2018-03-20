@@ -59,7 +59,11 @@ getWidthHeightShift :: Point -> Point -> (Side, Side, Point)
 getWidthHeightShift = undefined -- TODO
 
 shapeToPic :: Shape -> Picture
-shapeToPic = undefined -- TODO
+shapeToPic line = case line of
+  Line -> polyline(point,point)
+  _ -> undefined
+  -- what does line shape and polyline mean?
+  -- What cases do it have? I don't understand the question
 
 graphicsToPics :: [Graphic] -> [Picture]
 graphicsToPics = map graphicToPic
