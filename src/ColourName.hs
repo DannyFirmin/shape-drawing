@@ -34,7 +34,20 @@ data ColourName
 -- RGBA 0.875 0.5 0.125 1.0
 
 colourNameToColour :: ColourName -> Colour
-colourNameToColour = undefined -- TODO
+colourNameToColour colour = case colour of
+  Magenta -> magenta
+  --RGBA 255.0 0.0 255.0 1.0
+  Black -> black
+  --RGBA 0.0 0.0 0.0 1.0
+  Green -> green
+  --RGBA 0.125 0.875 0.125 1.0
+  Yellow -> yellow
+  --RGBA 255.0 255.0 0.0 1.0
+  Orange -> orange
+  --RGBA 0.875 0.5 0.125 1.0
+  Cyan -> cyan
+  --RGBA 0 184 212 1
+
 
 colourKeyMap :: [(String, ColourName)]
 colourKeyMap =
