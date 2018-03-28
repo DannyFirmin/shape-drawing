@@ -50,7 +50,7 @@ getEllipseGraphic :: Point -> Point -> ColourName -> Graphic
 getEllipseGraphic = undefined -- TODO
 
 getLineGraphic :: Point -> Point -> ColourName -> Graphic
-getLineGraphic = undefined -- TODO
+getLineGraphic _ _ c = undefined --Graphic Line c
 
 getPolygonGraphic :: [Point] -> ColourName -> Graphic
 getPolygonGraphic = undefined -- TODO
@@ -61,12 +61,12 @@ getWidthHeightShift = undefined -- TODO
 shapeToPic :: Shape -> Picture
 shapeToPic shape = case shape of
   Rectangle x y -> rectangle x y
-  Ellipse x y -> circle x
-  Polygon x -> polygon x
+  Ellipse x y -> scaled x y (circle x)
+  Polygon [x] -> polygon [x]
   Line x y -> polyline [x,y]
 
 graphicsToPics :: [Graphic] -> [Picture]
 graphicsToPics = map graphicToPic
 
 graphicToPic :: Graphic -> Picture
-graphicToPic = undefined -- TODO
+graphicToPic (Graphic shape colourName point) = coloured (colourNameToColour colourName) (shapeToPic shape)
