@@ -12,11 +12,17 @@ import Graphic
 
 import Safe (readMay)
 import Data.Maybe (maybe)
-
+-- origin code
 main :: IO ()
 main = do
     graphics <- addGraphic [] >>= newGraphicPrompt
     drawingOf $ pictures $ graphicsToPics graphics
+
+-- show coordinatePlane for test
+-- main :: IO ()
+-- main = do
+--     graphics <- addGraphic [] >>= newGraphicPrompt
+--     drawingOf $ pictures $ coordinatePlane : graphicsToPics graphics
     
 newGraphicPrompt :: [Graphic] -> IO [Graphic]
 newGraphicPrompt gs = do
