@@ -50,7 +50,7 @@ getEllipseGraphic :: Point -> Point -> ColourName -> Graphic
 getEllipseGraphic = undefined -- TODO
 
 getLineGraphic :: Point -> Point -> ColourName -> Graphic
-getLineGraphic a b c = Graphic Shape
+getLineGraphic a b c = (Line a b) c (0,0)
 
 getPolygonGraphic :: [Point] -> ColourName -> Graphic
 getPolygonGraphic = undefined -- TODO
