@@ -44,16 +44,17 @@ getNewGraphic :: State -> Maybe Point -> Maybe Graphic
 getNewGraphic = undefined -- TODO
 
 getRectangleGraphic :: Point -> Point -> ColourName -> Graphic
-getRectangleGraphic = undefined -- TODO
+getRectangleGraphic (x1,y1) (x2,y2) c= Graphic (Rectangle (abs(x2-x1))(abs(y2-y1))) c (0,0)
+
 
 getEllipseGraphic :: Point -> Point -> ColourName -> Graphic
-getEllipseGraphic = undefined -- TODO
+getEllipseGraphic (x1,y1) (x2,y2) c= Graphic (Ellipse (abs(x2-x1))(abs(y2-y1))) c (0,0)
 
 getLineGraphic :: Point -> Point -> ColourName -> Graphic
-getLineGraphic a b c = (Line a b) c (0,0)
+getLineGraphic a b c = Graphic (Line a b) c (0,0)
 
 getPolygonGraphic :: [Point] -> ColourName -> Graphic
-getPolygonGraphic = undefined -- TODO
+getPolygonGraphic a c = Graphic (Polygon a) c (0,0)
 
 getWidthHeightShift :: Point -> Point -> (Side, Side, Point)
 getWidthHeightShift = undefined -- TODO
@@ -62,11 +63,11 @@ shapeToPic :: Shape -> Picture
 shapeToPic shape = case shape of
   Rectangle x y -> rectangle x y
   Ellipse x y -> scaled x y (circle x)
-  Polygon [x] -> polygon [x]
+  Polygon x -> polygon x
   Line x y -> polyline [x,y]
 
 graphicsToPics :: [Graphic] -> [Picture]
 graphicsToPics = map graphicToPic
 
 graphicToPic :: Graphic -> Picture
-graphicToPic (Graphic shape colourName point) = coloured (colourNameToColour colourName) (shapeToPic shape)
+graphicToPic (Graphic shape colourName point) = coloured (colourNameToColour colourName) (translated 0 0 (shapeToPic shape))
