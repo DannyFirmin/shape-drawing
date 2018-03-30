@@ -61,7 +61,7 @@ getWidthHeightShift = undefined -- TODO
 shapeToPic :: Shape -> Picture
 shapeToPic shape = case shape of
   Rectangle x y -> solidRectangle x y
-  Ellipse x y -> scaled x y (solidCircle y)
+  Ellipse x y -> scaled x y (solidCircle 1)
   Polygon x -> solidPolygon x
   Line x y -> polyline [x,y]
 
