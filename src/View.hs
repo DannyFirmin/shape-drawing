@@ -38,7 +38,12 @@ drawState (World gs tool colour) =
 -- >>> drawNewGraphic (World [] (RectangleTool (Just (0, 0))) Orange) (Just (3, 7))
 -- World [Graphic (Rectangle 3.0 7.0) Orange (1.5,3.5)] (RectangleTool Nothing) Orange
 drawNewGraphic :: State -> Maybe Point -> State
-drawNewGraphic = undefined -- TODO
+drawNewGraphic (World [] (RectangleTool (Just p)) c) (Just (x2,y2)) = World [getRectangleGraphic p (x2,y2) c] (RectangleTool Nothing) c
+drawNewGraphic (World [] (EllipseTool (Just p)) c) (Just (x2,y2)) = World [getEllipseGraphic p (x2,y2) c] (EllipseTool Nothing) c
+drawNewGraphic (World [] (LineTool (Just p)) c) (Just (x2,y2)) = World [getLineGraphic p (x2,y2) c] (LineTool Nothing) c
+drawNewGraphic (World [] (PolygonTool p) c) (Nothing) = World [getPolygonGraphic p c] (PolygonTool []) c
+drawNewGraphic s _ = s
+--drawNewGraphic World [] t c Nothing = World [] t c
 
 getNewGraphic :: State -> Maybe Point -> Maybe Graphic
 getNewGraphic = undefined -- TODO

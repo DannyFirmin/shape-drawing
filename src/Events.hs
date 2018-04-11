@@ -9,6 +9,9 @@ module Events where
 import CodeWorld hiding (trace)
 import Debug.Trace
 import State
+import ColourName
+import View
+
 
 --
 -- | initialState Test
@@ -144,10 +147,36 @@ import State
 -- World [Graphic (Rectangle 3.0 3.0) Magenta (8.0,4.0)] (RectangleTool Nothing) Orange
 
 -- TODO
+
+
+
+
 handleEvent :: Event -> State -> State
 handleEvent e s =
   case e of
     KeyPress key
       | key == "Esc" -> initialState
       | key == "D"   -> trace (show s) s
+--    | key == "H" -> trace "Hello World" s
+      | key == "R" ->  World [] rectangleTool initialColour
+      | key == "E" ->  World [] ellipseTool initialColour
+      | key == "L" -> World [] lineTool initialColour
+      | key == "P" -> World [] polygonTool initialColour
+      | key == "M" -> passColour s Magenta
+      | key == "B" -> passColour s Black
+      | key == "G" -> passColour s Green
+      | key == "Y" -> passColour s Yellow
+      | key == "O" -> passColour s Orange
+      | key == "C" -> passColour s Cyan
+      | key == "Backspace" -> initialState
+--     MousePress press point
+--       | press == LeftButton -> trace (show point) s
+--       | press == RightButton -> trace (show point) s
+    MousePress press point
+      | press == LeftButton -> passStartPoint s (Just point)
+    MouseRelease release point
+      | release == LeftButton -> drawNewGraphic s (Just point)
+    KeyPress key
+      | key == " " -> drawNewGraphic s Nothing
+
     _ -> s
