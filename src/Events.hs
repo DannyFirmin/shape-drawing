@@ -11,6 +11,7 @@ import Debug.Trace
 import State
 import ColourName
 import View
+import Shape
 
 
 --
@@ -158,17 +159,17 @@ handleEvent e s =
       | key == "Esc" -> initialState
       | key == "D"   -> trace (show s) s
 --    | key == "H" -> trace "Hello World" s
-      | key == "R" ->  World [] rectangleTool initialColour
-      | key == "E" ->  World [] ellipseTool initialColour
-      | key == "L" -> World [] lineTool initialColour
-      | key == "P" -> World [] polygonTool initialColour
+      | key == "R" ->  changeTool s (RectangleTool Nothing)
+      | key == "E" ->  changeTool s (EllipseTool Nothing)
+      | key == "L" -> changeTool s (LineTool Nothing)
+      | key == "P" -> changeTool s (PolygonTool [])
       | key == "M" -> passColour s Magenta
       | key == "B" -> passColour s Black
       | key == "G" -> passColour s Green
       | key == "Y" -> passColour s Yellow
       | key == "O" -> passColour s Orange
       | key == "C" -> passColour s Cyan
-      | key == "Backspace" -> initialState
+      | key == "Backspace" -> removeShape s
 --     MousePress press point
 --       | press == LeftButton -> trace (show point) s
 --       | press == RightButton -> trace (show point) s
