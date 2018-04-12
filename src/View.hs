@@ -70,8 +70,10 @@ getNewGraphic = undefined -- TODO
 -- to (mid x1 x2, mid y1 y2), where mid is a function to calculate
 -- halfway between its two arguments. What does that function look
 -- like?
+
+-- Thanks tutor Jack to point it out. The bug in partA is now fixed.
 getRectangleGraphic :: Point -> Point -> ColourName -> Graphic
-getRectangleGraphic (x1,y1) (x2,y2) c= Graphic (Rectangle (abs(x2-x1))(abs(y2-y1))) c (x2-abs(x2-x1)/2,y2-abs(y2-y1)/2)
+getRectangleGraphic (x1,y1) (x2,y2) c= Graphic (Rectangle (abs(x2-x1))(abs(y2-y1))) c ((x1+x2)/2, (y1+y2)/2) --previous bug (x2-abs(x2-x1)/2,y2-abs(y2-y1)/2)
 
 getEllipseGraphic :: Point -> Point -> ColourName -> Graphic
 getEllipseGraphic (x1,y1) (x2,y2) c= Graphic (Ellipse (abs(x2-x1)/2)(abs(y2-y1)/2)) c (x2-abs(x2-x1)/2,y2-abs(y2-y1)/2)
